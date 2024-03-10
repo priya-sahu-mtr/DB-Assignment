@@ -2,24 +2,24 @@
 ANSWER 1:
 Here,we simplify the tables in term's of keys and breakdown of the attributes in each table:
 
-Product table:
+Product table contains:
 
-id (Primary Key)
-name
-category_id (FOREIGN KEY referencing category_id in Product_Category)
-inventory
-discount_id
-created_at
-modified_at
-deleted_at
+id (Primary Key),
+name,
+category_id (FOREIGN KEY referencing category_id in Product_Category),
+inventory,
+discount_id,
+created_at,
+modified_at,
+deleted_at attributes
 
-Product_Category table:
+ And Product_Category table contains:
 
-category_id (PRIMARY KEY)
-name
-created_at
-modified_at
-deleted_at
+category_id (PRIMARY KEY),
+name,
+created_at,
+modified_at,
+deleted_at attributes
 
 In the given schema in the figure, we can conclude that:
 
@@ -34,10 +34,10 @@ To ensure that each product in the "Product" table has a valid category assigned
 
 Here's how we can set up the foreign key constraint:
 
-ALTER TABLE Product
-ADD CONSTRAINT FK_Product_Category
-FOREIGN KEY (category_id) 
-REFERENCES Product_Category(category_id);
+ALTER TABLE Product     
+ADD CONSTRAINT FK_Product_Category     
+FOREIGN KEY (category_id)      
+REFERENCES Product_Category(category_id);    
 
 With the help this constraint in place, whenever a new row is inserted into the "Product" table, the database will check that the value of the "category_id" column exists in the "category_id" column of the "Product_Category" table. If the value does not exist, the database will reject the insertion or update operation, ensuring that each product always has a valid category assigned to it.
 
